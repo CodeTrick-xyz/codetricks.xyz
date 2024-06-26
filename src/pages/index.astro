@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
 
 const posts = (await getCollection('articles')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -8,6 +9,9 @@ const posts = (await getCollection('articles')).sort(
 
 <!doctype html>
 <html lang="en">
+	<head>
+		<BaseHead title="CodeTricks" description='CodeTricks is a blog about web development, programming, and technology.' />
+	</head>
 	<body>
 		<main>
 			<section>

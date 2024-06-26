@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+
+type Props = CollectionEntry<"articles">["data"];
+
+const { title, description, pubDate, author } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <BaseHead title={title} description={description} />
+</head>
+<body>
+    <header>
+        <h1>{title}</h1>
+        <p>By {author} on {pubDate}</p>
+    </header>
+    <article>
+        <slot />
+    </article>
+    <footer>
+        <a href="/">Back to articles</a>
+    </footer>
+</body>
+</html>
