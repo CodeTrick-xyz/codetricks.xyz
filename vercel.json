@@ -1,18 +1,31 @@
 {
     "projects": [
       {
-        "name": "astro",
-        "rootDirectory": "web",
-        "buildCommand": "npm install && npm run build",
-        "outputDirectory": "web/dist",
-        "framework": "astro"
+        "name": "web",
+        "path": "web",
+        "buildCommand": "npm run build",
+        "outputDirectory": "dist"
       },
       {
         "name": "sanity",
-        "rootDirectory": "sanity",
-        "buildCommand": "npm install && npm run build",
-        "outputDirectory": "sanity/dist",
-        "framework": null
+        "path": "sanity",
+        "buildCommand": "npm run build",
+        "outputDirectory": "dist"
+      }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "web/$1" },
+      { "src": "/studio/(.*)", "dest": "sanity/$1" }
+    ],
+    "domains": [
+      {
+        "domain": "codetricks.xyz",
+        "default": true
+      },
+      {
+        "domain": "studio.codetricks.xyz",
+        "path": "sanity"
       }
     ]
   }
+  
