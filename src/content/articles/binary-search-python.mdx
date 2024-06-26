@@ -1,0 +1,86 @@
+---
+title: 'How to Perform Binary Search in Python'
+description: 'Lorem ipsum dolor sit amet'
+pubDate: 'Jun 26 2024'
+author: 'Dhairya Shah'
+---
+
+Binary search is a classic algorithm in computer science used for finding the position of a target value within a sorted array. It works by repeatedly dividing the search interval in half. If the value of the search key is less than the item in the middle of the interval, the interval is reduced to the lower half. Otherwise, it is reduced to the upper half. This process continues until the value is found or the interval is empty.
+
+Here's a step-by-step guide on how to implement binary search in Python.
+
+### Understanding Binary Search
+
+Binary search requires the list to be sorted. If the list is not sorted, the results are unpredictable. The key steps in binary search are:
+
+1. **Initialization**: Define the initial boundaries of the search interval.
+2. **Midpoint Calculation**: Find the middle element of the current interval.
+3. **Comparison**: Compare the target value with the middle element.
+4. **Narrowing Down**: Adjust the interval based on the comparison result.
+5. **Iteration or Recursion**: Repeat the process until the target value is found or the interval is empty.
+
+### Binary Search Implementation
+
+There are two main ways to implement binary search in Python: iteratively and recursively.
+
+#### Iterative Approach
+
+The iterative approach uses a loop to repeatedly narrow down the search interval.
+
+```python
+def binary_search_iterative(arr, target):
+    left, right = 0, len(arr) - 1
+    
+    while left <= right:
+        mid = (left + right) // 2
+        
+        if arr[mid] == target:
+            return mid  # Target found at index mid
+        elif arr[mid] < target:
+            left = mid + 1  # Search in the right half
+        else:
+            right = mid - 1  # Search in the left half
+    
+    return -1  # Target not found
+
+# Example usage
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+target = 7
+result = binary_search_iterative(arr, target)
+print(f"Target {target} found at index {result}")  # Output: Target 7 found at index 6
+```
+
+#### Recursive Approach
+
+The recursive approach uses function calls to perform the narrowing down of the search interval.
+
+```python
+def binary_search_recursive(arr, target, left, right):
+    if left > right:
+        return -1  # Base case: Target not found
+    
+    mid = (left + right) // 2
+    
+    if arr[mid] == target:
+        return mid  # Target found at index mid
+    elif arr[mid] < target:
+        return binary_search_recursive(arr, target, mid + 1, right)  # Search in the right half
+    else:
+        return binary_search_recursive(arr, target, left, mid - 1)  # Search in the left half
+
+# Example usage
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+target = 7
+result = binary_search_recursive(arr, target, 0, len(arr) - 1)
+print(f"Target {target} found at index {result}")  # Output: Target 7 found at index 6
+```
+
+### Key Points to Remember
+
+- **Sorted Array**: Binary search only works on sorted arrays. If the array is not sorted, sort it first.
+- **Time Complexity**: Binary search has a time complexity of \(O(\log n)\), making it very efficient for large datasets.
+- **Space Complexity**: The iterative approach has a space complexity of \(O(1)\), while the recursive approach has a space complexity of \(O(\log n)\) due to the call stack.
+
+### Conclusion
+
+Binary search is an efficient algorithm for finding elements in a sorted array. Understanding both the iterative and recursive implementations can help you choose the best approach based on the problem at hand. By following the steps outlined in this article, you can easily implement binary search in Python and harness its power to handle large datasets effectively.

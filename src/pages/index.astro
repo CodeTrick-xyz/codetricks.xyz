@@ -1,16 +1,33 @@
 ---
+import { getCollection } from 'astro:content';
 
+const posts = (await getCollection('articles')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
 ---
 
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
 	<body>
-		<h1>Astro</h1>
+		<main>
+			<section>
+				<ul>
+					{
+						posts.map((post) => (
+								<a href={`/${post.slug}/`}>
+									<h3 class="title">{post.data.title}</h4>
+									<p class="date">
+										{new Date(post.data.pubDate).toLocaleDateString('en-US', {
+											year: 'numeric',
+											month: 'long',
+											day: 'numeric'
+										})}
+									</p>
+								</a>	
+						))
+					}
+				</ul>
+			</section>
+		</main>
 	</body>
 </html>
