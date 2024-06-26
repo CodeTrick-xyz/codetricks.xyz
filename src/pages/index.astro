@@ -1,37 +1,37 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
+import { getCollection } from "astro:content";
+import { annotate } from "rough-notation";
+import BaseHead from "../components/BaseHead.astro";
+import Nav from "../components/Nav.astro";
 
-const posts = (await getCollection('articles')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+const posts = (await getCollection("articles")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title="CodeTricks" description='CodeTricks is a blog about web development, programming, and technology.' />
-	</head>
-	<body>
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-								<a href={`/${post.slug}/`}>
-									<h3 class="title">{post.data.title}</h4>
-									<p class="date">
-										{new Date(post.data.pubDate).toLocaleDateString('en-US', {
-											year: 'numeric',
-											month: 'long',
-											day: 'numeric'
-										})}
-									</p>
-								</a>	
-						))
-					}
-				</ul>
-			</section>
-		</main>
-	</body>
+  <head>
+    <BaseHead
+      title="CodeTricks"
+      description="CodeTricks is a blog about web development, programming, and technology."
+    />
+  </head>
+  <body>
+    <Nav />
+    <section class="mt-10 w-full max-w-4xl mx-auto sm:px-0 px-4">
+      <ul>
+        {
+          posts.map((post) => (
+            <li>
+              <a href={`/${post.slug}/`}>
+                <h4 class="text-lg font-semibold">{post.data.title}</h4>
+				<p class="text-sm text-gray-600 truncate">{post.data.description}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </body>
 </html>
