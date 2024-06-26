@@ -1,0 +1,28 @@
+---
+import { createClient } from "@sanity/client";
+export async function getStaticPaths() {
+  const client = createClient({
+    projectId: "fw4fh611",
+    dataset: "production",
+    useCdn: true, // set to `false` to bypass the edge cache
+    apiVersion: "2023-05-03", // use current date (YYYY-MM-DD) to target the latest API version
+    // token: process.env.SANITY_SECRET_TOKEN // Only if you want to update content with the client
+  });
+  const posts = await client.fetch('*[_type == "post"]');
+  console.log(posts);
+  return posts.map(({ title, slug }: {
+    title: string
+    slug: { current: string }
+}) => {
+    return {
+      params: { slug: slug.current },
+      props: { title },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+const { title } = Astro.props;
+---
+
+<p>this is the {title} with slug {slug}</p>

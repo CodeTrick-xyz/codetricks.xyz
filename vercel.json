@@ -1,0 +1,18 @@
+{
+    "projects": [
+      {
+        "name": "astro",
+        "rootDirectory": "web",
+        "buildCommand": "npm install && npm run build",
+        "outputDirectory": "web/dist",
+        "framework": "astro"
+      },
+      {
+        "name": "sanity",
+        "rootDirectory": "sanity",
+        "buildCommand": "npm install && npm run build",
+        "outputDirectory": "sanity/dist",
+        "framework": null
+      }
+    ]
+  }

@@ -10,6 +10,5 @@ export default defineConfig({
     dataset: "production",
     useCdn: false,
     apiVersion: "2024-06-26",
-    studioBasePath: "/studio"
   }), react()]
 });
