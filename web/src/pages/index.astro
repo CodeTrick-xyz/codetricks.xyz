@@ -1,5 +1,7 @@
 ---
+import {sanityClient}  from '../../lib/sanity';
 
+const posts = await sanityClient.fetch(`*[_type == "post"]`);
 ---
 
 <html lang="en">
@@ -8,9 +10,18 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>CodeTricks</title>
+		<title>My blog</title>
 	</head>
 	<body>
-		<h1>codetricks.xyz</h1>
+		<h1>My blog</h1>
+		{posts && (
+			<ul>
+			  {posts.map((post: any) => (
+				<li>
+				  <a href={`post/${post.slug.current}`}>{post.title}</a>
+				</li>
+			  ))}
+			</ul>
+		  )}
 	</body>
 </html>
