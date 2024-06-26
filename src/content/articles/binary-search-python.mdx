@@ -4,8 +4,11 @@ description: 'Binary search is a classic algorithm in computer science used for 
 pubDate: 'Jun 26 2024'
 author: 'Dhairya Shah'
 ---
+import Latex from '../../components/Latex.astro'    
 
 Binary search is a classic algorithm in computer science used for finding the position of a target value within a sorted array. It works by repeatedly dividing the search interval in half. If the value of the search key is less than the item in the middle of the interval, the interval is reduced to the lower half. Otherwise, it is reduced to the upper half. This process continues until the value is found or the interval is empty.
+
+
 
 Here's a step-by-step guide on how to implement binary search in Python.
 
@@ -78,8 +81,8 @@ print(f"Target {target} found at index {result}")  # Output: Target 7 found at i
 ### Key Points to Remember
 
 - **Sorted Array**: Binary search only works on sorted arrays. If the array is not sorted, sort it first.
-- **Time Complexity**: Binary search has a time complexity of \(O(\log n)\), making it very efficient for large datasets.
-- **Space Complexity**: The iterative approach has a space complexity of \(O(1)\), while the recursive approach has a space complexity of \(O(\log n)\) due to the call stack.
+- **Time Complexity**: Binary search has a time complexity of <Latex formula='O(\log n)' />, making it very efficient for large datasets.
+- **Space Complexity**: The iterative approach has a space complexity of <Latex formula='O(1)' />, while the recursive approach has a space complexity of <Latex formula='O(\log n)' /> due to the call stack.
 
 ### Conclusion
 
