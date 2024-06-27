@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import Article from "../layouts/Article.astro";
+import TableofContent from "../components/TableofContent.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("articles");
@@ -13,9 +14,10 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"articles">;
 
 const post = Astro.props;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 ---
 
 <Article {...post.data}>
+  <!-- <TableofContent headings={headings} /> -->
   <Content />
 </Article>
