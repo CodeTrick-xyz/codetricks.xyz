@@ -2,7 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Nav from "../components/Nav.astro";
-
+import '../styles/global.css'
 type Props = CollectionEntry<"articles">["data"];
 
 const { title, description, pubDate, author } = Astro.props;
@@ -17,7 +17,9 @@ const { title, description, pubDate, author } = Astro.props;
     <Nav />
     <main class="w-full mx-auto max-w-4xl sm:px-0 px-4 mt-16">
       <header class="mb-6">
-        <h1 class="text-3xl lg:text-4xl font-semibold tracking-tight">{title}</h1>
+        <h1 class="text-3xl lg:text-4xl font-semibold tracking-tight">
+          {title}
+        </h1>
         <p class="text-sm lg:text-base text-gray-600 mt-2">
           Written by {author} on {
             new Date(pubDate).toLocaleDateString("en-US", {
@@ -29,6 +31,10 @@ const { title, description, pubDate, author } = Astro.props;
         </p>
       </header>
       <article class="prose lg:prose-xl">
+        <div id="carbon-sticky">
+          <button onclick="document.getElementById('carbon-sticky').remove()">Remove ads</button>
+          <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CWYIP5QW&placement=wwwdhairyashahdev" id="_carbonads_js"></script>
+        </div>
         <slot />
       </article>
       <footer class="my-8">
