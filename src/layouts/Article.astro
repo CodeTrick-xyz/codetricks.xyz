@@ -2,7 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Nav from "../components/Nav.astro";
-import '../styles/global.css'
+import "../styles/global.css";
 type Props = CollectionEntry<"articles">["data"];
 
 const { title, description, pubDate, author } = Astro.props;
@@ -33,7 +33,20 @@ const { title, description, pubDate, author } = Astro.props;
       <article class="prose lg:prose-xl">
         <slot />
       </article>
-      <footer class="my-8">
+      <footer class="my-8 border-t pt-10">
+        <div>
+          <h1 class="text-2xl font-semibold">Comments</h1>
+          <script
+          src="https://utteranc.es/client.js"
+          repo="CodeTrick-xyz/discuss"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async
+          is:inline
+        ></script>
+        </div>
+        <br />
         <a href="/" class="underline underline-offset-2">Back to homepage</a>
       </footer>
     </main>
