@@ -1,0 +1,121 @@
+---
+title: 'Getting Started with Rust: A Beginner’s Guide to Rust Programming'
+description: 'Learn Rust programming with this beginner’s guide. Discover how to install Rust, write your first ‘Hello, World!’ program, and explore key concepts like ownership, borrowing, and concurrency. Start your journey with Rust today!'
+pubDate: 'Jun 28 2024'
+author: 'Dhairya Shah'
+---
+### Introduction
+
+Rust is a general-purpose programming language that emphasizes performance, type safety, and concurrency. It enforces memory safety, meaning that all references point to valid memory without a garbage collector.
+
+Rust was created as a personal project by Graydon Hoare while working at Mozilla Research in 2006. Today, Rust is adopted by many companies, including Amazon, Discord, Dropbox, Google, and Microsoft.
+
+According to [Stack Overflow’s developer survey](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/), 97% of the survey respondents have not used the Rust programming language. So, you will join the 3% who have worked with the Rust programming language.
+
+Let’s begin our Rust journey.
+
+### Why Rust?
+
+Before learning Rust, you may wonder why you should learn the Rust programming language when there are similar languages like C and C++.
+
+Let’s explore why it has become a favored language among developers:
+
+1. **Performance:** Rust is as fast as C and C++, making it ideal for system-level programming.
+2. **Memory Safety:** Rust prevents null pointer dereferencing and buffer overflows through its ownership system.
+3. **Concurrency:** Rust’s concurrency model ensures that data races are caught at compile-time.
+4. **Ecosystem and Tooling:** Cargo, Rust’s package manager and build system, simplifies dependency management and project configuration.
+5. **Community:** Rust has a vibrant and welcoming community, with great documentation and support.
+
+### Installation
+
+#### Linux or MacOS Installation
+
+To install the Rust programming language on your Linux or MacOS machine, run the following command:
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+After the installation finishes, run the following commands to verify if Rust is installed properly:
+
+```bash
+rustc --version
+cargo --version
+```
+
+If you don’t have curl installed on your machine, run the following command:
+
+```bash
+sudo apt install curl
+```
+
+#### Windows Installation
+
+To install the Rust programming language on a Windows system, follow these steps:
+
+- First, go to the [Rust official page](https://www.rust-lang.org/tools/install) and download the installer for Windows.
+- After the installation finishes, run the following commands to check if Rust is installed properly:
+
+    ```bash
+    rustc --version
+    cargo --version
+    ```
+
+### Your First Rust Program: Hello World
+
+Let’s write the classic “Hello, World!” program to get a feel of Rust’s syntax and structure.
+
+1. Create a new Rust project:
+    
+    ```bash
+    cargo new hello_world
+    cd hello_world
+    ```
+    
+2. Navigate to the src directory and open `main.rs`:
+    
+    ```bash
+    cd src
+    vim main.rs
+    ```
+    
+    Feel free to open the Rust project in your preferred IDE.
+    
+3. Edit `main.rs` to print “Hello, World!”:
+    
+    ```rust
+    fn main() {
+        println!("Hello, World!");
+    }
+    ```
+    
+4. Build and run the program:
+    
+    ```bash
+    cargo run
+    ```
+    
+    This step does the job of both compilation and running, so you don’t need to compile the program manually every time you run it.
+
+    TODO: ADD ARTICLE FOR HOW TO MANUALLY RUN AND COMPILE A RUST PROGRAM
+
+#### Understanding the Code
+
+- `fn main() { ... }`: This defines the main function, which serves as the entry point of a Rust program.
+- `println!`: It is a macro in Rust used for printing to the console.
+
+So, this was your first Rust program. How do you feel?
+
+### Conclusion
+
+Rust combines the performance and control of low-level languages with modern programming paradigms, making it a powerful tool for developers. From its unique ownership model to its robust ecosystem, Rust offers a rich programming experience.
+
+Here are a few important shell commands we have discussed:
+
+- **Create a new project**: `cargo new project_name`
+- **Build a project**: `cargo build`
+- **Run a project**: `cargo run`
+
+So, this was it for this article. Stay tuned!
+
+Happy coding in Rust!
