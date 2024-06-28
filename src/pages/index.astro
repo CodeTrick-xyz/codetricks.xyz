@@ -4,7 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Nav from "../components/Nav.astro";
 
 const posts = (await getCollection("articles")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
