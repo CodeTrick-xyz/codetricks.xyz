@@ -9,7 +9,7 @@ export async function GET(context) {
 		site: "https://codetricks.xyz",
 		items: posts.map((post) => ({
 			...post.data,
-			link: `/${post.slug}/`,
+			link: `/article/${post.slug}/`,
 		})),
 	});
 }
