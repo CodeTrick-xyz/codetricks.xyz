@@ -20,15 +20,13 @@ Return true if you can reach the last index, or false otherwise.
 ```python
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        n = len(nums)
-        max_reach = 0
-        for i in range(n):
-            if i > max_reach:
+        reach = 0
+        for i in range(len(nums)):
+            if i > reach:
                 return False
-            max_reach = max(max_reach, i + nums[i])
-            if max_reach >= n - 1:
-                return True
-        return False
+            reach = max(reach, i + nums[i])
+        
+        return reach >= len(nums) - 1
 ```
 
 ## Complexity Analysis
