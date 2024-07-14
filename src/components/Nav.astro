@@ -1,12 +1,13 @@
 ---
 import Icon from "./Icon";
 
+const {rss = '/rss.xml'} = Astro.props;
 ---
 
 <nav class="w-full max-w-4xl mx-auto mt-10 sm:px-0 px-4 flex justify-between items-center">
   <Icon client:load/>
   <div class="flex gap-x-4">
-    <a href="/rss.xml" title="RSS Feed">
+    <a href={rss} title="RSS Feed">
         <img src="/assets/rss.svg" alt="RSS" class="w-6 h-6" />
     </a>
   </div>

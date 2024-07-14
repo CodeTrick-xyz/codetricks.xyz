@@ -18,6 +18,7 @@ const leetcode = defineCollection({
         description: z.string().optional(),
         difficulty: z.string(),
         tags: z.array(z.string()),
+        pubDate: z.coerce.date().default(() => new Date()),
     })
 })
 

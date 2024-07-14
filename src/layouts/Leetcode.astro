@@ -14,7 +14,7 @@ const { title, description, difficulty, tags } = Astro.props;
     <BaseHead title={title} description={description || title} />
   </head>
   <body>
-    <Nav />
+    <Nav rss="/leetcode/rss.xml"/>
     <main class="w-full mx-auto max-w-4xl sm:px-0 px-4 mt-16">
       <header class="mb-6">
         <h1 class="text-3xl lg:text-4xl font-semibold tracking-tight">
