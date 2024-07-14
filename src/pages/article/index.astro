@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import Nav from "../components/Nav.astro";
+import BaseHead from "../../components/BaseHead.astro";
+import Nav from "../../components/Nav.astro";
 
-const posts = (await getCollection("articles")).slice(0,5).sort(
+const posts = (await getCollection("articles")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
@@ -12,7 +12,7 @@ const posts = (await getCollection("articles")).slice(0,5).sort(
 <html lang="en">
   <head>
     <BaseHead
-      title="CodeTricks"
+      title="View all articles | CodeTricks"
       description="CodeTricks is a blog about web development, programming, and technology."
     />
   </head>
@@ -31,12 +31,6 @@ const posts = (await getCollection("articles")).slice(0,5).sort(
           ))
         }
       </ul>
-      <h3 class="mt-5 font-semibold underline">
-        <a href="/article/">
-          View all articles
-        </a>
-      </a>
-      <!-- <hr class="mt-10"/> -->
     </section>
   </body>
 </html>
