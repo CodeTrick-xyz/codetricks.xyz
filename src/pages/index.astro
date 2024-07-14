@@ -23,7 +23,7 @@ const posts = (await getCollection("articles")).sort(
         {
           posts.map((post) => (
             <li class="mt-4">
-              <a href={`/${post.slug}/`}>
+              <a href={`/article/${post.slug}/`}>
                 <h4 class="text-lg font-semibold">{post.data.title}</h4>
 				<p class="text-sm text-gray-600 truncate">{post.data.description}</p>
               </a>
