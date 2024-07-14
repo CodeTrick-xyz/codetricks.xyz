@@ -11,4 +11,14 @@ const articles = defineCollection({
     })
 })
 
-export const collections = {articles}
+const leetcode = defineCollection({
+    type: 'content',
+    schema: z.object({
+        title: z.string(),
+        description: z.string().optional(),
+        difficulty: z.string(),
+        tags: z.array(z.string()),
+    })
+})
+
+export const collections = {articles, leetcode}

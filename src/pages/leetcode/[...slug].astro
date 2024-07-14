@@ -1,0 +1,23 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Leetcode from "../../layouts/Leetcode.astro";
+import TableofContent from "../../components/TableofContent.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("leetcode");
+  return posts.map((article) => ({
+    params: { slug: article.slug },
+    props: article,
+  }));
+}
+
+type Props = CollectionEntry<"leetcode">;
+
+const post = Astro.props;
+const { Content, headings } = await post.render();
+---
+
+<Leetcode {...post.data}>
+  <!-- <TableofContent headings={headings} /> -->
+  <Content />
+</Leetcode>
