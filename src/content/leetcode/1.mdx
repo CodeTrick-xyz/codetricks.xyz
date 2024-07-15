@@ -1,0 +1,34 @@
+---
+title: 1. Two Sum
+description: Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+difficulty: Easy
+tags: ["Array", "Hash Table"]
+---
+
+import Latex from '../../components/Latex.astro'
+
+## Problem Statement
+
+Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+You can return the answer in any order.
+
+## Solution
+```py
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hm = {}
+
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in hm:
+                return [hm[diff], i]
+            hm[n] = i
+```
+
+## Complexity Analysis
+
+- Time Complexity: <Latex formula='O(n)' />
+- Space Complexity: <Latex formula='O(n)' />
