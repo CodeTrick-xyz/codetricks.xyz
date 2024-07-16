@@ -1,0 +1,28 @@
+---
+title: 42. Trapping Rain Water
+description: Trapping Rain Water
+difficulty: Hard
+tags: ["Array", "Two Pointers", "Stack"]
+---
+
+## Solution
+```py
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        l , r = 0, len(height) - 1
+
+        maxL = height[l]
+        maxR = height[r]
+        ans = 0
+        while l < r:
+            if maxL < maxR:
+                ans += maxL - height[l]
+                l += 1
+                maxL = max(maxL, height[l])
+            else:
+                ans += maxR - height[r]
+                r -= 1
+                maxR = max(maxR, height[r])
+        
+        return ans
+```
